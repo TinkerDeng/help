@@ -1,86 +1,82 @@
+# npm
 
-## CSS3动画,你写过什么?
+    账号：denglier
 
-#### 测试题,看大家对css了解多少
+## 命令
 
-	1. perspective是用来干嘛的?
-	2.cubic-bezier你用过吗，是干嘛的?
-	3.z-index层叠上下文的层叠顺序知道是什么吗?
-	4.transform有哪些值，都是干嘛的?
-	5.:nth-of-type(n)和:nth-child(n)是什么意思，有什么区别?
-	6.<label for=””></label> label标签的for是干嘛的?
-	http://www.htmleaf.com/Demo/201506222087.html
-	
-#### 开发到现在遇到的问题？
-	1.android手机上line-height不居中
-		很诡异，同一个手机有的居中，有的不居中
-	2.input框被键盘挡住
-	3.单边阴影问题
-	
-###### line-height 在移动端的居中问题
+```
+yeomon和express-generator脚手架工具
+npm的服务器是外国的，淘宝镜像将npm模块同步到国内服务器
+sudo find / -name " mongodb"查找文件路径
 
-参考网址：
-	```https://www.cnblogs.com/dolphinX/p/3236686.html```
-	
-原因：
-	```
-	1.使用rem单位，字体大小出现小数点
-	2.并且字体大小是奇数显示
-	3.字体大小小于12px
-	解决方案
-	1.border:1px solid transparent;box-sizing:border-box;
-	2.display:table;   display：table-cell;vertial-align:middle;
-	3.font-size:48px;transform:scale(0.5);transform-origin:0% 0%;
-	```
-##### input框被键盘挡住
+sinopia搭建私有的npn仓库
+ls -lh xx查看文件的大小自己信息
+. npmignore忽略的npm文件
 
-解决方案：
-	1.原生滚动(body滚动)input不会被挡住
-	2.flex-direction:column; justify-content:flex-end;
-		只能解决一屏情况下input偏底部或固定在底部的情况
-	3.监听onfus事件,改变element的scrollTop事件，
-      需要判断ios，android环境
-	4.element.scrollIntoView(true)或者scrollIntoViewNeeded()
-     配合body{height:100%}   测试没有效果,不靠谱
+npm adduser             创建npm账号
 
-##### 单边阴影问题
+npm login       将账号信息存储在本地客户端
 
-```box-shadow:	10px    10px    10px          10px            #ff0000          inset
-		x轴       y轴       模糊值    扩展半径   阴影的颜色  内阴影```
+npm config ls确认账号信息已经存储在客户端
 
-### 动画应用场景
+npm publish 发布程序包
 
-http://www.haodoxi.com/demo/35/
-http://www.jq22.com/yanshi17899
-http://h5.eqxiu.com/s/0Sohnquq
-http://www.17sucai.com/preview/1/2016-10-20/jQuery-dtk/index.html
-https://codepen.io/Manoz/pen/pydxK
-https://www.html5tricks.com/demo/html5-boy-run-animation/index.html
+npm version更新版本然后运行上面的代码再发布
 
-### 三个DEMO演示
+设置npm包package. json的配置项
+npm set init. author. email "652988976@qq.com"
+npm set init. author. name “邓凤存”
 
-#### transition 加入购物车特效
-#### transform 3d转换动画
-#### animation 动画
+touch  xx. html 创建文件( mac)
 
-### 贝塞尔曲线
+npm config set save-exact true锁定版本号整个
 
-百度百科定义：
-		```又称贝兹曲线或贝济埃曲线，是应用于二维图形应用程序的数学曲线。一般的矢量图形软件通过它来精确画出曲线，贝兹曲线由线段与节点组成，节点是可拖动的支点，线段像可伸缩的皮筋，我们在绘图工具上看到的钢笔工具就是来做这种矢量曲线的。贝塞尔曲线是计算机图形学中相当重要的参数曲线，在一些比较成熟的位图软件中也有贝塞尔曲线工具。```
-		
-网址：
-		```http://cubic-bezier.com/#.81,.05,1,.54```
-		
+npm i express --save --save-exact固定版本号
+
+npm config set运行npm config list 查看
+
+npm shrinkwrap锁定包括依赖dependencies
 
 
 
 
+npm adduser添加用户
+npm publish发布一个新的包或一个新版本
 
+n和nvm是两个常用的node版本管理工具，想尝试新特性，又不想来回安装不同的版本
 
+npm i nrm -g  切换国内国外的源
+nrm ls
+nrm use cnpm切换源
 
+npm install babel-preset-env --save-de v
+npm install -g shelljs
+npm install -g gulp
+npm install -g browserify
+npm install -g run-sequence
+npm install watchify
+npm install -g vue-cli
+npm view jquery versions查看模块全部版本
+npm root查看依赖项目所在的目录
+npm root -g查看全局模块安装目录
+npm view xxx  dependdencies查看包的依赖关系
+npm view xxx  --versions查看一个包的所有版本
+npm search xxx 查找模块
+npm repo xx打开npm仓库地址git地址
+npm update xxx升级依赖包至最新版本
+npm prune 清除未使用的模块
+npm  list查看已安装的模块
+npm ls以树形结构打印依赖包极其版本
+    npm ls —json 以json格式输出
+    npm ls —global 输出全局依赖信息
+    npm ls —prod 仅输出dependencies的依赖
+    npm ls --dev 仅输出devDependenci的依赖
+    npn ls --depth 1输出一层依赖关系
+npn config set package-lock false禁用lock锁定
+bower install tree
+tree -F 树形图看文件目录
 
-#### 最后给大家推荐一本CSS书
-
-![Alt text](./1528350897930.png)
-
-#### 谢谢大家
+npm view webpack repository.url 查看包的源文件地址
+ npm view 模块名 engines查看当前模块依赖的node最低版本号
+ npm outdated检查包是否已经过时
+```
