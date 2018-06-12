@@ -15,7 +15,6 @@ git rm -f --cached .			        清除本地ignore的缓存
 ```
 
 ## 命令
-
 ```
 git remote -v				                    查看本地库关联的远程库信息
 git remote rm remoteName		            删除本地已经关联的远程库信息
