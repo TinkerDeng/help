@@ -7,7 +7,7 @@
 * [sass](#sass)
 
 ### git
-[GIT API 地址](./GIT.md)
+[GIT API 地址](./git.md)
 
 ### npm
 [NPM API 地址](./npm.md)

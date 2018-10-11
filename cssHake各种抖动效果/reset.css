@@ -1,0 +1,66 @@
+body {
+    background-color: #2ab8ac;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    text-align: center;
+}
+
+h1,
+h3 {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 100;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+a {
+    color: inherit;
+}
+
+.main-title:after {
+    content: attr(title);
+    position: absolute;
+    font-size: .25em;
+    margin-left: -1em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn {
+    background-color: transparent;
+    border: 1px solid;
+    color: white;
+    font-size: 14px;
+
+    letter-spacing: 1px;
+    line-height: 1;
+    margin: .5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .3s;
+    padding: 1.3em;
+    /*padding-bottom: 2.5em;*/
+    position: relative;
+}
+
+.btn:hover {
+    background-color: white;
+    border-color: white;
+    color: #2ab8ac;
+}
+
+.btn:after {
+    bottom: .5em;
+    content: attr(href);
+    font-size: 70%;
+    left: 50%;
+    position: absolute;
+    text-transform: none;
+    transform: translateX(-50%);
+}
