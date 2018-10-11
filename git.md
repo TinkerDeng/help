@@ -1,7 +1,7 @@
 # git
 
 ## 全局配置
-```
+```git
 git config --global user.name "Your Name"
 git config --global user.email "email@example.com"
 
@@ -15,7 +15,7 @@ git rm -f --cached .			        清除本地ignore的缓存
 ```
 
 ## 命令
-```
+```git
 git remote -v				                    查看本地库关联的远程库信息
 git remote rm remoteName		            删除本地已经关联的远程库信息
 git config --global color.ui true	      命令行git显示颜色

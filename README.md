@@ -3,6 +3,8 @@
 ## 目录
 * [git](#git)
 * [npm](#npm)
+* [mac](#mac)
+* [sass](#sass)
 
 ### git
 [GIT API 地址](./GIT.md)
