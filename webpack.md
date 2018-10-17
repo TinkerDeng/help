@@ -4,7 +4,7 @@
 
 * [自定义插件](#自定义插件plugin)
   * [理论知识](#理论知识)
-  * [常用API](#常用API)
+  * [compiler事件钩子](#compiler事件钩子)
   * [注意问题](#问题注意)
   * [案例演示](#demo)
 * [参考链接](#参考链接)
@@ -23,7 +23,7 @@
 1. webpack通过Tapable来组织这条生产线，compiler和compilation都继承自tapable，可以直接在这两个对象上广播和监听事件
 1. compilation.getStats()这个函数相当重要，能得到生产文件以及chunkhash的一些信息
 
-#### 常用API
+#### compiler事件钩子
 
 ##### entry-option 初始化option（同步）
 ##### run 开始编译（异步）
@@ -189,6 +189,47 @@ compiler.plugin("done", (stats) => {
     message: `WebPack is done!\n${stats.compilation.errors.length} errors in ${time}s`,
     contentImage: "https://path/to/your/logo.png",
   });
+});
+```
+#### compilation事件钩子
+##### normal-module-loader 普通模块loader，真实地一个一个加载模块图
+##### seal编译封闭阶段
+##### optimize优化编译
+##### optimize-modules 模块的优化
+##### optimize-chunks webpack的chunk优化阶段，可以拿到模块的依赖，loader等
+##### additional-assets（异步）可以为compilation对象创建额外的assets，可以异步的在最后的assets中加入自己自定义的一些资产
+##### optimize-chunk-assets优化 chunk 的 assets 的事件钩子，这个优化阶段可以改变 chunk 的 assets 以达到重新改变资源内容的目。assets 被存储在 this.assets 中，但是它们并不都是 chunk 的 assets。一个 chunk 有一个 files 属性指出这个 chunk 创建的所有文件。附加的 assets 被存储在 this.additionalChunkAssets。
+##### optimize-assets 优化所有的assets（异步），在这个阶段可以通过this.assets拿到所有的assets，并进行自定义操作，类似optimize-chunk-assets，但是拿不到chunks
+##### compilation实例演示
+```
+// 往assets资源里面新增一个svg资源的案例
+compiler.plugin('compilation', function (compilation) {
+    compilation.plugin('additional-assets', function (callback) {
+        download('https://some.host/some/path/some.svg', function (resp) {
+            if (resp.status === 200) {
+                compilation.assets['webpack-version.svg'] = toAsset(resp);
+                callback();
+            }
+            else {
+                callback(new Error('[webpack-example-plugin] Unable to download the image'));
+            }
+        })
+    });
+});
+// 为chunk添加头信息
+compilation.plugin("optimize-chunk-assets", function (chunks, callback) {
+    chunks.forEach(function (chunk) {
+        chunk.files.forEach(function (file) {
+            compilation.assets[file] = '/**some comments info**/\n' + compilation.assets[file];
+        });
+    });
+    callback();
+});
+//拿到所有的assets
+compilation.plugin("optimize-assets", function (asstes, callback) {
+    console.log(assets);
+    // 可以直接操作 assets 里面的 file
+    callback();
 });
 ```
 
