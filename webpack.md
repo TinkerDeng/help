@@ -25,34 +25,13 @@
 
 #### 常用API
 
-##### make
-
-> **任务开始**
-##### compile(编译任务)
-##### after-compile(编译完成)
-##### 
-##### done
-
-> **webpack成功编译和输出文件后执行（可以执行发布操作，例如把文件上传到服务器)**
-
-```
-compiler.plugin('done', (stats) => {
-    // 在 done 事件中回调 doneCallback
-    this.doneCallback(stats);
-});
-```
-##### failed
-
-> **在构建出现异常导致构建失败的时候发生**
-
-```
-  compiler.plugin('failed', (err) => {
-        // 在 failed 事件中回调 failCallback
-        this.failCallback(err);
-    });
-```
-
-##### emit（即将准备生成文件）
+##### entry-option 初始化option（同步）
+##### run 开始编译（异步）
+##### compile 真正开始编译，在创建compilation对象之前（同步）
+##### compilation 生成好了compilation对象，可以操作这个对象啦（同步）
+##### make 从entry开始递归分析依赖，准备对每个模块进行build（并行）
+##### after-compile(编译build过程完成)(异步）
+##### emit（再将内存中assets内容写入磁盘文件夹之前）（异步）
 
 > **代表源文件的转换和组装已经完成，可以读取到最终输出的资源，代码块，模块，以及一俩，并且可以修改删除输出资源的内容**
 
@@ -108,7 +87,30 @@ compiler.plugin('emit', (compilation, callback) => {
   callback();
 });
 ```
-##### after-emit(生成文件之后）
+##### after-emit(在讲内存中assets内容写入磁盘文件夹之后）（异步）
+
+> **webpack成功编译和输出文件后执行（可以执行发布操作，例如把文件上传到服务器)**
+
+```
+compiler.plugin('done', (stats) => {
+    // 在 done 事件中回调 doneCallback
+    this.doneCallback(stats);
+});
+```
+
+##### done 完成所有的编译过程（同步）,得到的内容 stats
+##### failed 编译失败的时候（同步），得到的内容error
+
+> **在构建出现异常导致构建失败的时候发生**
+
+```
+  compiler.plugin('failed', (err) => {
+        // 在 failed 事件中回调 failCallback
+        this.failCallback(err);
+    });
+```
+
+
 
 ##### watch-run
 
