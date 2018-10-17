@@ -11,7 +11,8 @@
 ### 自定义插件plugin
 
 #### 理论知识
-
+> a
+>>aaa
 1. compiler和compilation是plugin和webpack之间的桥梁
 1. compiler包含了webpack的所有配置信息，包含loader，options，plugins，可以理解为webpack的实例
 1. compilation包含了当前的模块资源，编译生成文件，变化的文件等，当webpack以开发模式运行时，每当检查到一个文件变化，一次新的compilation被创建
