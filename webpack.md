@@ -238,4 +238,4 @@ compilation.plugin("optimize-assets", function (asstes, callback) {
 ### 参考链接
 * [webpack原理之plugin](https://segmentfault.com/a/1190000012840742)
 ### 配图
-[图片]()
+ ![图片](/assets/2.jpg)
