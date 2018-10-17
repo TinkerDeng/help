@@ -23,6 +23,12 @@
 
 #### 常用API
 
+##### make
+
+> **任务开始**
+##### compile(编译任务)
+##### after-compile(编译完成)
+##### 
 ##### done
 
 > **webpack成功编译和输出文件后执行（可以执行发布操作，例如把文件上传到服务器)**
@@ -44,7 +50,7 @@ compiler.plugin('done', (stats) => {
     });
 ```
 
-##### emit
+##### emit（即将准备生成文件）
 
 > **代表源文件的转换和组装已经完成，可以读取到最终输出的资源，代码块，模块，以及一俩，并且可以修改删除输出资源的内容**
 
@@ -100,6 +106,8 @@ compiler.plugin('emit', (compilation, callback) => {
   callback();
 });
 ```
+##### after-emit(生成文件之后）
+
 ##### watch-run
 
 > **当入口模块或以来的模块发生变化时，就会触发一次新的compilation，在开发中要知道哪个文件导致的新的compilation**
