@@ -203,7 +203,7 @@ compiler.plugin("done", (stats) => {
 ##### optimize-chunk-assets优化 chunk 的 assets 的事件钩子，这个优化阶段可以改变 chunk 的 assets 以达到重新改变资源内容的目。assets 被存储在 this.assets 中，但是它们并不都是 chunk 的 assets。一个 chunk 有一个 files 属性指出这个 chunk 创建的所有文件。附加的 assets 被存储在 this.additionalChunkAssets。
 ##### optimize-assets 优化所有的assets（异步），在这个阶段可以通过this.assets拿到所有的assets，并进行自定义操作，类似optimize-chunk-assets，但是拿不到chunks
 ##### compilation实例演示
-```
+```javascript
 // 往assets资源里面新增一个svg资源的案例
 compiler.plugin('compilation', function (compilation) {
     compilation.plugin('additional-assets', function (callback) {
@@ -233,9 +233,25 @@ compilation.plugin("optimize-assets", function (asstes, callback) {
     // 可以直接操作 assets 里面的 file
     callback();
 });
+
+//uglifyjsplugin插件
+
+UglifyJsPlugin.prototype.apply = function(compiler) {
+  compiler.plugin("compilation", function(compilation) {
+    compilation.plugin("build-module", function(module) {
+    });
+    compilation.plugin("optimize-chunk-assets", function(chunks, callback) {
+      // Uglify 逻辑
+    });
+    compilation.plugin("normal-module-loader", function(context) {
+    });
+  });
+};
+
 ```
 
 ### 参考链接
+
 * [webpack原理之plugin](https://segmentfault.com/a/1190000012840742)
 ### 配图
  ![图片](/assets/2.jpg)
