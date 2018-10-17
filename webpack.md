@@ -11,8 +11,7 @@
 ### 自定义插件plugin
 
 #### 理论知识
-> a
->>aaa
+
 1. compiler和compilation是plugin和webpack之间的桥梁
 1. compiler包含了webpack的所有配置信息，包含loader，options，plugins，可以理解为webpack的实例
 1. compilation包含了当前的模块资源，编译生成文件，变化的文件等，当webpack以开发模式运行时，每当检查到一个文件变化，一次新的compilation被创建
@@ -26,7 +25,7 @@
 
 ##### done
 
-> webpack成功编译和输出文件后执行（可以执行发布操作，例如把文件上传到服务器)
+> **webpack成功编译和输出文件后执行（可以执行发布操作，例如把文件上传到服务器)**
 
 ```
 compiler.plugin('done', (stats) => {
@@ -36,7 +35,7 @@ compiler.plugin('done', (stats) => {
 ```
 ##### failed
 
-> 在构建出现异常导致构建失败的时候发生
+> **在构建出现异常导致构建失败的时候发生**
 
 ```
   compiler.plugin('failed', (err) => {
@@ -47,7 +46,7 @@ compiler.plugin('done', (stats) => {
 
 ##### emit
 
-> 代表源文件的转换和组装已经完成，可以读取到最终输出的资源，代码块，模块，以及一俩，并且可以修改删除输出资源的内容
+> **代表源文件的转换和组装已经完成，可以读取到最终输出的资源，代码块，模块，以及一俩，并且可以修改删除输出资源的内容**
 
 ```javascript
 compiler.plugin('emit', function (compilation, callback) {
@@ -103,7 +102,7 @@ compiler.plugin('emit', (compilation, callback) => {
 ```
 ##### watch-run
 
-> 当入口模块或以来的模块发生变化时，就会触发一次新的compilation，在开发中要知道哪个文件导致的新的compilation
+> **当入口模块或以来的模块发生变化时，就会触发一次新的compilation，在开发中要知道哪个文件导致的新的compilation**
 
 ```
 // 当依赖的文件发生变化时会触发 watch-run 事件
@@ -119,7 +118,7 @@ compiler.plugin('watch-run', (watching, callback) => {
 ```
 ##### after-compile
 
-> webpack默认只会监视入口及其依赖的文件的变化，为了监视html的变化，需要把html文件加入到依赖列表中
+> **webpack默认只会监视入口及其依赖的文件的变化，为了监视html的变化，需要把html文件加入到依赖列表中**
 
 ```
   compiler.plugin('after-compile', (compilation, callback) => {
@@ -168,3 +167,6 @@ function hasExtractTextPlugin(compiler) {
   return plugins.find(plugin=>plugin.__proto__.constructor === ExtractTextPlugin) != null;
 }
 ```
+
+### 参考链接
+* [webpack原理之plugin](https://segmentfault.com/a/1190000012840742)
