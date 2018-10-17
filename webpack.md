@@ -1,5 +1,7 @@
 # webpack
 
+> **webpack是当下最热门的前端资源模块化管理和打包工具**
+
 ## 目录
 
 * [自定义插件](#自定义插件plugin)
@@ -235,3 +237,5 @@ compilation.plugin("optimize-assets", function (asstes, callback) {
 
 ### 参考链接
 * [webpack原理之plugin](https://segmentfault.com/a/1190000012840742)
+### 配图
+[图片]()
