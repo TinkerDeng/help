@@ -7,6 +7,7 @@
   * [常用API](#常用API)
   * [注意问题](#问题注意)
   * [案例演示](#demo)
+* [参考链接](#参考链接)
   
 ### 自定义插件plugin
 
@@ -20,6 +21,7 @@
 1. webpack就像一个生产线，这条生产线上的每个处理流程都是单一的，多个流程存在依赖关系，完成当前的处理后才交给下一个流程去处理
 1. 插件就是插入到生产线上的一个功能，再特定的时机对生产线上的资源做处理
 1. webpack通过Tapable来组织这条生产线，compiler和compilation都继承自tapable，可以直接在这两个对象上广播和监听事件
+1. compilation.getStats()这个函数相当重要，能得到生产文件以及chunkhash的一些信息
 
 #### 常用API
 
@@ -174,6 +176,18 @@ function hasExtractTextPlugin(compiler) {
   // 去 plugins 中寻找有没有 ExtractTextPlugin 的实例
   return plugins.find(plugin=>plugin.__proto__.constructor === ExtractTextPlugin) != null;
 }
+
+
+compiler.plugin("done", (stats) => {
+  const pkg = require("./package.json");
+  const notifier = require("node-notifier");
+  const time = ((stats.endTime - stats.startTime) / 1000).toFixed(2);
+  notifier.notify({
+    title: pkg.name,
+    message: `WebPack is done!\n${stats.compilation.errors.length} errors in ${time}s`,
+    contentImage: "https://path/to/your/logo.png",
+  });
+});
 ```
 
 ### 参考链接
