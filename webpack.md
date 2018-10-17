@@ -2,13 +2,13 @@
 
 ## 目录
 
-* [自定义插件](#plugin)
+* [自定义插件](#自定义插件plugin)
   * [理论知识](#理论知识)
-  * [API](#常用api)
+  * [常用API](#常用API)
   * [注意问题](#问题注意)
   * [案例演示](#demo)
   
-### plugin
+### 自定义插件plugin
 
 #### 理论知识
 
@@ -21,7 +21,28 @@
 1. 插件就是插入到生产线上的一个功能，再特定的时机对生产线上的资源做处理
 1. webpack通过Tapable来组织这条生产线，compiler和compilation都继承自tapable，可以直接在这两个对象上广播和监听事件
 
-#### 常用api
+#### 常用API
+
+##### done
+
+> webpack成功编译和输出文件后执行（可以执行发布操作，例如把文件上传到服务器)
+
+```
+compiler.plugin('done', (stats) => {
+    // 在 done 事件中回调 doneCallback
+    this.doneCallback(stats);
+});
+```
+##### failed
+
+> 在构建出现异常导致构建失败的时候发生
+
+```
+  compiler.plugin('failed', (err) => {
+        // 在 failed 事件中回调 failCallback
+        this.failCallback(err);
+    });
+```
 
 ##### emit
 
