@@ -7,6 +7,7 @@
 * [sass](#sass)
 * [webpack](#webpack)
 * [fiddler](#fiddler)
+* [weinre](#weinre)
 
 ### git
 [GIT API 地址](./git.md)
@@ -24,4 +25,7 @@
 [WEBPACK_API 地址](./webpack.md)
 
 ### fiddler
-[fiddler 地址](./fiddler.md)
+[fiddler API 地址](./fiddler.md)
+
+### weinre
+[weinre API 地址](./weinre.md)
