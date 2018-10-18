@@ -1,5 +1,7 @@
 # weinre
 
+> 主要用来调试手机的样式,解决移动端的bug问题
+
 ### 安装
 
 `npm install -g weinre`
