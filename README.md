@@ -9,6 +9,7 @@
 * [fiddler](#fiddler)
 * [weinre](#weinre)
 * [charles](#charles)
+* [typescript](#typescript)
 
 ### git
 [GIT API 地址](./git.md)
@@ -33,3 +34,6 @@
 
 ### charles
 [charles API 地址](./charles.md)
+
+### typescript
+[typesxript API 地址](./typescript.md)
