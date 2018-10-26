@@ -38,6 +38,14 @@
 > **代表源文件的转换和组装已经完成，可以读取到最终输出的资源，代码块，模块，以及一俩，并且可以修改删除输出资源的内容**
 
 ```javascript
+ if (compiler.hooks) { //webpack > 4
+  compiler.hooks.afterEmit.tapAsync("QiniuWebpackPlugin",uploadFiles);
+ }else{ //webpack<4
+   compiler.plugin("after-emit",uploadFiles);
+ }
+```
+
+```javascript
 compiler.plugin('emit', function (compilation, callback) {
       // compilation.chunks 存放所有代码块，是一个数组
       compilation.chunks.forEach(function (chunk) {
