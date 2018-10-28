@@ -3,6 +3,8 @@
 ## 目录
 
 * [功能详解](#功能详解)
+    * [手机抓包](#手机抓包)
+    * [手机抓包步骤](#手机抓包步骤)
     * [file下面的气泡按钮](#file下面的气泡按钮) 
     * [replay](#replay) 
     * [x](#x) 
@@ -14,6 +16,15 @@
 #### 手机抓包
 
 [网址](https://blog.csdn.net/shimengran107/article/details/78644862)
+
+#### 手机抓包步骤
+1. Tools-> Fiddler Options->Connections，勾选"Allow remote computers to connect" 
+1. 打开Fiddler,右上角有一个Online，这里也可以查看IP
+1. 保证手机和电脑在同一个网管，给手机设置代理
+1. 打开浏览器，输入ip:端口号下载证书
+1. 点击最下方的“FiddlerRoot certificate”按钮，下载证书
+
+
 
 #### file下面的气泡按钮
 
