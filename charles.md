@@ -2,6 +2,16 @@
 
 <font color="#ff0000">charles代理切记关闭防火墙 切记</font>
 
+## 目录
+
+* [文档地址](#文档地址)
+* [注意事项](#注意事项)
+* [api](#api)
+
+### 文档地址
+
+[掘金](https://juejin.im/post/5b8350b96fb9a019d9246c4c)
+
 ### 注意事项
 
 1. **电脑上一定要把proxy>macos proxy（window proxy）勾上**
