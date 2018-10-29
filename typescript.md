@@ -90,3 +90,25 @@
         let myArray: StringArray;
         myArray = ["Bob", "Fred"];
 ```
+### interface
+```
+    interface ClockInterface{
+        setTime(timer){};
+    }
+    class ChineseClock implements ClockInterface{
+        setTime(){}
+    }
+    class WestClock implements ClockInterface{
+        setTime(){};
+    }
+    
+    function getCurrentClock(clockInt:ClockInterface,timer){
+        ClockInterface.setTime(timer);
+    }
+    const chieseClock=new ChineseClock();
+    const westClock=new WestClock();
+    
+    getCurrentClock(chieseClock,xxxx);
+    getCurrentClock(westClock,xxxx);
+    
+```
