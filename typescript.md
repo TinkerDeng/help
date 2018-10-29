@@ -47,6 +47,13 @@
         // 由枚举的值得到它的名
         enum Color {Red = 1, Green, Blue}
         let colorName: string = Color[2];
+    // 状态枚举
+        export enum EStatus {
+            BAN = 0,
+            OPEN = 1,
+            HIDE = 2,
+            NOTBUY = 3
+        }
         
     // 类型断言：也叫类型转换
         // 方法一
