@@ -11,6 +11,7 @@
 * [charles](#charles)
 * [typescript](#typescript)
 * [babel](#babel)
+* [骨架屏](#骨架屏)
 
 ### git
 [GIT API 地址](./git.md)
@@ -41,3 +42,6 @@
 
 ### babel
 [babel API 地址](./babel.md)
+
+### 骨架屏
+[骨架屏 API 地址](./skeleton-screen.md)
