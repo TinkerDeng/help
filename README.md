@@ -10,6 +10,7 @@
 * [weinre](#weinre)
 * [charles](#charles)
 * [typescript](#typescript)
+* [babel](#babel)
 
 ### git
 [GIT API 地址](./git.md)
@@ -37,3 +38,6 @@
 
 ### typescript
 [typesxript API 地址](./typescript.md)
+
+### babel
+[babel API 地址](./babel.md)
