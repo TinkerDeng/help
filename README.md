@@ -14,6 +14,7 @@
 * [typescript](#typescript)
 * [babel](#babel)
 * [骨架屏](#骨架屏)
+* [vscode](#vscode)
 
 ### node
 [NODE API 地址](./node.md)
@@ -50,3 +51,6 @@
 
 ### 骨架屏
 [骨架屏 API 地址](./skeleton-screen.md)
+
+### vscode
+[VSCODE API 地址](./vscode.md)
