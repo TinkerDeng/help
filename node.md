@@ -35,9 +35,7 @@
 
 1. destination 下载路径
 
-1. options
-
-**{clone:true}**:git clone 下载代替 http download下载
+1. options:**{clone:true}**:git clone 下载代替 http download下载
 
 1.callback回调函数
 
