@@ -37,7 +37,7 @@
 
 1. options:**{clone:true}**:git clone 下载代替 http download下载
 
-1.callback回调函数
+1. callback回调函数
 
 ###### demo
 ```git
