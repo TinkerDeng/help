@@ -57,6 +57,7 @@ import less from 'less';
 var path = require('path');
 var copydir = require('copy-dir');
 copydir.sync('/my/from/path', '/my/target/path', function(stat, filepath, filename){
+  // 过滤一些不需要拷贝的文件
   if(stat === 'file' && path.extname(filepath) === '.html') {
     return false;
   }
