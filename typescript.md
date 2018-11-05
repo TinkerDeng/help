@@ -16,6 +16,7 @@
 ### 语法
 
 ```javascript
+    
     // Any类型
     let notSure: any = 4;
     notSure = "maybe a string instead";
@@ -90,7 +91,9 @@
         let myArray: StringArray;
         myArray = ["Bob", "Fred"];
 ```
+
 ### interface
+
 ```
     interface ClockInterface{
         setTime(timer){};
