@@ -67,7 +67,7 @@
  import rimraf from "rimraf"
  rimraf.sync(path.resolve(__diranme,"dll")) //删除dll文件
 ```
-##### pify
+#### pify
 
 > 把回调函数风格的代码改成promise回调形式,promice化工具
 
