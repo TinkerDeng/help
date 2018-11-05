@@ -1,6 +1,12 @@
 # git
 
-## 全局配置
+## 目录
+
+* [全局配置](*全局配置)
+* [命令](*命令)
+
+### 全局配置
+
 ```git
 git config --global user.name "Your Name"
 git config --global user.email "email@example.com"
@@ -14,7 +20,7 @@ git rm -f --cached .			        清除本地ignore的缓存
 
 ```
 
-## 命令
+### 命令
 ```git
 git remote -v				                    查看本地库关联的远程库信息
 git remote rm remoteName		            删除本地已经关联的远程库信息
@@ -46,7 +52,7 @@ git merge xxx				                    把xxx分支合并到当前分支
 ```
 
 
-#  git教程
+###  git教程
 
 > git入门指南
 
@@ -144,7 +150,9 @@ Git为我们自动创建的第一个分支master，以及指向master的一个�
     * git branch --merged master | grep -v '^\*\|  master' | xargs -n 1 git branch -d
 
 #### git diff HEAD -- common.css 
+
 > 查看工作区和版本库里面最新版本的区别
+
 ```diff
 - body{color:#ff0000;}
 + #app{font-size:20px;}
