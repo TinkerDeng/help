@@ -4,6 +4,9 @@
 
 * [fs模块](#fs)
 * [模块](#模块)
+ * [rimraf](#rimraf)
+ * [pipy](#pipy)
+ * [copy-dir](#copy-dir)
 
 ### fs
 [地址](http://javascript.ruanyifeng.com/nodejs/fs.html)
@@ -42,6 +45,28 @@
 
 ```git
 import less from 'less';
+```
+
+##### copy-dir
+
+> 复制文件或者文件夹到另一个路径
+> [链接](https://github.com/liepinteam/copy-dir)
+
+```javascript
+ 
+var path = require('path');
+var copydir = require('copy-dir');
+copydir.sync('/my/from/path', '/my/target/path', function(stat, filepath, filename){
+  if(stat === 'file' && path.extname(filepath) === '.html') {
+    return false;
+  }
+  if (stat === 'directory' && filename === '.svn') {
+    return false;
+  }
+  return true;
+}, function(err){
+  console.log('ok');
+});
 ```
 
 
