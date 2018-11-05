@@ -60,7 +60,7 @@
 
 #### rimraf
 
-> 以包的形式包装rm -rf命令,就是用来删除文件和文件夹的 [链接](https://www.npmjs.com/package/rimraf)
+**包装rm -rf命令,删除文件和文件夹的 [地址](https://github.com/isaacs/rimraf)**
 
 ```node
  import rimraf from "rimraf"
