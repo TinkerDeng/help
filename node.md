@@ -14,15 +14,17 @@
 
 ### nodec常用模块
 
-##### download-git-repo[地址](https://github.com/flipxfx/download-git-repo#downloadrepository-destination-options-callback)
+##### download-git-repo
 
-###### 安装
+> [地址](https://github.com/flipxfx/download-git-repo#downloadrepository-destination-options-callback)
+
+> 安装
 
 ```
    npm install -D download-git-repo
 ```
 
-###### 文档
+> 文档
 
 > download(repository, destination, options, callback)
 
@@ -39,7 +41,8 @@
 
 1. callback回调函数
 
-###### demo
+> demo
+
 ```git
 
   download('bitbucket:flipxfx/download-git-repo-fixture#my-branch', 'test/tmp', { clone: true }, function (err) {
