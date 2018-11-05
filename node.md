@@ -63,6 +63,7 @@
 **包装rm -rf命令,删除文件和文件夹的 [地址](https://github.com/isaacs/rimraf)**
 
 ```node
+ npm install rimraf -D 安装
  import rimraf from "rimraf"
  rimraf.sync(path.resolve(__diranme,"dll")) //删除dll文件
 ```
