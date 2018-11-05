@@ -4,6 +4,7 @@
 
 * [fs模块](#fs)
 * [模块](#模块)
+  * [download-git-repo](#download-git-repo)
   * [rimraf](#rimraf)
   * [pify](#pify)
   * [copy-dir](#copy-dir)
@@ -12,6 +13,50 @@
 [地址](http://javascript.ruanyifeng.com/nodejs/fs.html)
 
 ### 模块
+
+##### download-git-repo
+
+####### 安装
+
+```
+   npm install -D download-git-repo
+```
+
+####### 文档
+
+> download(repository, destination, options, callback)
+
+1. repository
+
+* `GitHub` - github:owner/name#branch or simply owner/name#branch
+* `GitLab` - gitlab:owner/name#branch
+* `Bitbucket` - bitbucket:owner/name#branch
+* `direct:url`- 直接下载
+
+1. destination 下载路径
+
+1. options
+
+*clone:true*:git clone 下载代替 http download下载
+
+1.callback回调函数
+
+####### demo
+```git
+
+  download('bitbucket:flipxfx/download-git-repo-fixture#my-branch', 'test/tmp', { clone: true }, function (err) {
+    console.log(err ? 'Error' : 'Success')
+  })
+
+  download('direct:https://gitlab.com/flipxfx/download-git-repo-fixture.git', 'test/tmp', { clone: true }, function (err) {
+   console.log(err ? 'Error' : 'Success')
+ })
+ 
+ download('flipxfx/download-git-repo-fixture', 'test/tmp', function (err) {
+   console.log(err ? 'Error' : 'Success')
+ })
+ 
+```
 
 ##### rimraf
 
