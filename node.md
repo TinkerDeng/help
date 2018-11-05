@@ -24,8 +24,6 @@
    npm install -D download-git-repo
 ```
 
-> 文档
-
 > download(repository, destination, options, callback)
 
 1. repository
