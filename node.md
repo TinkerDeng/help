@@ -8,6 +8,7 @@
   * [rimraf](#rimraf)
   * [pify](#pify)
   * [copy-dir](#copy-dir)
+  * [git-clone](#git-clone)
 
 ### fs
 [地址](http://javascript.ruanyifeng.com/nodejs/fs.html)
@@ -113,6 +114,10 @@ copydir.sync('/my/from/path', '/my/target/path', function(stat, filepath, filena
   console.log('ok');
 });
 ```
+
+#### git-clone
+
+[地址](https://github.com/jaz303/git-clone)
 
 
 
