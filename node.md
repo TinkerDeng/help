@@ -2,7 +2,19 @@
 
 ## 目录
 
+* [fs模块](#fs)
 * [模块](#模块)
+
+### fs
+
+```
+// 异步读取数据 如果是相对路径是相对于当前进程（process.cwd()）所在的路径
+ fs.readFile('./image.png', function (err, buffer) {
+   if (err) throw err;
+ });
+```
+
+
 
 ### 模块
 
