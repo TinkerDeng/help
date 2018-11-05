@@ -1,6 +1,7 @@
 # babel
 
 > babel是一个转译器，把同种语言的高版本规则翻译成低版本规则，允许你提前使用js语法
+
 > 转译三个阶段:parsing、transforming、generating
 >>  ES6代码输入 ==》 babylon进行解析 ==》 得到AST
 ==》 plugin用babel-traverse对AST树进行遍历转译 ==》 得到新的AST树
