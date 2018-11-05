@@ -12,9 +12,9 @@
 ### fs
 [地址](http://javascript.ruanyifeng.com/nodejs/fs.html)
 
-### 模块
+### nodec常用模块
 
-##### download-git-repo
+##### download-git-repo[地址](https://github.com/flipxfx/download-git-repo#downloadrepository-destination-options-callback)
 
 ###### 安装
 
