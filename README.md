@@ -18,6 +18,7 @@
 * [骨架屏](#骨架屏)
 * [vscode](#vscode)
 * [webstorm](#webstorm)
+* [hybrid](#hybrid)
 
 ### 网址
 [网址 地址](./网址.md)
@@ -64,7 +65,9 @@
 ### vscode
 [VSCODE API 地址](./vscode.md)
 
-
 ### webstorm
 [WEBSTORM API 地址](./webstorm.md)
+
+### hybrid
+[HYBIRD API 地址](./hybird.md)
 
