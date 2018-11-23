@@ -1,57 +1,51 @@
-# sass 学习指南
+# sass
 
-@charset "UTF-8";
+## 目录
 
-## 基本语法
+* [基本语法](#基本语法)
+* [常用逻辑](#常用逻辑)
 
-* $defaultBgColor:#ff0000;
-* $color:#ff0000;变量
+### 基本语法
 
-## @extend 继承
-```
-    .class1{
-        border:1px solid #ddd;
-
-    }
-    .class2{
-        @extend .class1;
-        color:#ff0000;
-    }
-```
-
-## @mixin可以重用的代码快,可以传递参数，设置初始值
-```
-    @mixin left($value: 10px) {
-　　　　float: left;
-　　　　margin-right: $value;
-　　}
-　　div{
-　　    @include left();
-　　}
-```
-## if条件判断
-```
-    p{
-        @if lightness($color) > 30% {
-    　　　　background-color: #000;
-    　　} @else {
-    　　　　background-color: #fff;
+```css
+    $defaultBgColor:#ff0000;
+    $color:#ff0000;
+    
+    /*@extend 继承*/
+        .class1{
+            border:1px solid #ddd;
+    
+        }
+        .class2{
+            @extend .class1;
+            color:#ff0000;
+        }
+    /*@mixin可以重用的代码快,可以传递参数，设置初始值*/
+        @mixin left($value: 10px) {
+    　　　　float: left;
+    　　　　margin-right: $value;
     　　}
-    }
+    　　div{
+    　　    @include left();
+    　　}
+　　/*if条件判断*/
+    　　p{
+            @if lightness($color) > 30% {
+        　　　　background-color: #000;
+        　　} @else {
+        　　　　background-color: #fff;
+        　　}
+        }
+    /*自定义函数*/
+        @function double($n) {
+    　　　　@return $n * 2;
+    　　}
+    
+    　　#sidebar {
+    　　　　width: double(5px);
+    　　}
 ```
-
-## 自定义函数
-```
-    @function double($n) {
-　　　　@return $n * 2;
-　　}
-
-　　#sidebar {
-　　　　width: double(5px);
-　　}
-```
-
-## demo
+### 常用逻辑
 ```
     @mixin placeholders{
         ::-webkit-input-placeholder {
