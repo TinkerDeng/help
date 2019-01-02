@@ -5,6 +5,36 @@
 * [常用操作](#常用操作)
 * [必用快捷键](#必用快捷键)
 * [必装插件](#必装插件)
+* [snippets用户代码片段](#snippets用户代码片段)
+
+### snippets用户代码片段
+
+> `文件=》首选项=》用户代码片段=》新建全局代码片段`
+
+```json
+  {
+    "h5 sample": {
+      "prefix": "h", //快捷代码
+      "body": [
+        "<!DOCTYPE html>",
+        "<html lang=\"zh-CN\">\n",
+        "<head>",
+        "\t<meta charset=\"UTF-8\">",
+        "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios\">",
+        "\t<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">",
+        "\t<title>Document</title>",
+        "\t<link rel=\"stylesheet\" href=\"$1\">",
+        "\t<script src=\"$2\"></script>",
+        "</head>\n",
+        "<body>\n$3",
+        "</body>\n",
+        "</html>"
+      ],
+      "description": "html5 template"
+    }
+  }
+```
+
 
 ### 常用操作
 
