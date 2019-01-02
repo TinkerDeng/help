@@ -14,7 +14,7 @@
 ```json
   {
     "h5 sample": {
-      "prefix": "h", //快捷代码
+      "prefix": "h",
       "body": [
         "<!DOCTYPE html>",
         "<html lang=\"zh-CN\">\n",
