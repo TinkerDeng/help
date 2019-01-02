@@ -4,6 +4,13 @@
 
 * [全局配置](#全局配置)
 * [命令](#命令)
+* [生成秘钥](#生成秘钥)
+
+### 生成秘钥
+
+1. `ssh-keygen -t rsa -c "git邮箱"`		生成秘钥
+2. `cd ~/.ssh` 查看生成了 id_rsa(私钥） id_rsa.pub（公钥）
+3. 讲公钥的内容copy到gitlab中，生成ssh key
 
 ### 全局配置
 
@@ -15,7 +22,6 @@ git config --global alias.st status 	配置别名st
 git config --global alias.co checkout	配置别名co
 
 git remote add origin git@gitee.com:liaoxuefeng/learngit.git 本地库和远程库关联
-ssh-keygen -t rsa -c "git邮箱"		生成秘钥
 git rm -f --cached .			        清除本地ignore的缓存
 
 ```
