@@ -11,6 +11,8 @@
 1. `ssh-keygen -t rsa -c "git邮箱"`		生成秘钥
 2. `cd ~/.ssh` 查看生成了 id_rsa(私钥） id_rsa.pub（公钥）
 3. 讲公钥的内容copy到gitlab中，生成ssh key
+4. `ssh-add -K ~/.ssh/id_rsa 避免每次输入口令`
+5. `ssh-keygen -p`或者删掉之前的
 
 ### 全局配置
 
