@@ -13,7 +13,6 @@
 
 ### 必用快捷键
 ```
-ctrl+shfit+a        截屏（window上）
 command+，          打开配置
 command+shift+p     显示所有命令 
 command+k+n	        搜索node_modules文件（search node modules插件)
