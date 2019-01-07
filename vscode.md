@@ -2,69 +2,44 @@
 
 ## 目录
 
-* [常用操作](#常用操作)
-* [必用快捷键](#必用快捷键)
-* [必装插件](#必装插件)
-* [snippets用户代码片段](#snippets用户代码片段)
-
-### snippets用户代码片段
-
-> `文件=》首选项=》用户代码片段=》新建全局代码片段`
-
-```json
-  {
-    "h5 sample": {
-      "prefix": "h",
-      "body": [
-        "<!DOCTYPE html>",
-        "<html lang=\"zh-CN\">\n",
-        "<head>",
-        "\t<meta charset=\"UTF-8\">",
-        "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios\">",
-        "\t<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">",
-        "\t<title>Document</title>",
-        "\t<link rel=\"stylesheet\" href=\"$1\">",
-        "\t<script src=\"$2\"></script>",
-        "</head>\n",
-        "<body>\n$3",
-        "</body>\n",
-        "</html>"
-      ],
-      "description": "html5 template"
-    }
-  }
-```
-
+- [常用操作](#常用操作)
+- [必用快捷键](#必用快捷键)
+- [必装插件](#必装插件)
+- [snippets](#snippets)
+- [我的配置](#我的配置)
 
 ### 常用操作
 
 1. `command+ -`:放大缩小整个编辑器
 2. `command+b`:隐藏显示侧边栏
+3. `editor.mouseWheelZoom": true`:Ctrl+滚轮实现字体缩放
 
 ### 必用快捷键
-```
-command+，          打开配置
-command+shift+p     显示所有命令 
-command+k+n	        搜索node_modules文件（search node modules插件)
-alt+shift+f         格式化代码（format docuemnt）
-command+alt+i       添加文件头注释
-shift+alt+a         添加多行注释
-command+shfit+[     代码折叠显示
-command+e           ？gotofile搜索项目
-command+p           进入哪个文件,快捷查找文件
-command+shift+f     文件夹中查找
-command+k+s         快捷键列表
-command+f1          在浏览器中运行html文件
-ctrl+r              最近打开的项目
-ctrl+g              跳转到行号
-ctrl+`              打开编辑器终端
-ctrl+b              explorer显示隐藏
+
+```git
+    command+，          打开配置
+    command+shift+p     显示所有命令
+    command+k+n	        搜索node_modules文件（search node modules插件)
+    alt+shift+f         格式化代码（format docuemnt）
+    command+alt+i       添加文件头注释
+    shift+alt+a         添加多行注释
+    command+shfit+[     代码折叠显示
+    command+e           ？gotofile搜索项目
+    command+p           进入哪个文件,快捷查找文件
+    command+shift+f     文件夹中查找
+    command+k+s         快捷键列表
+    command+f1          在浏览器中运行html文件
+    command+b           explorer显示隐藏
+    ctrl+r              最近打开的项目
+    ctrl+g              跳转到行号
+    ctrl+`              打开编辑器终端
 ```
 
 ### 必装插件
+
 ```
-auto rename tag         修改HTML标签时，自动修改匹配的标签  
-Markdown Paste          从剪切板粘贴图片到markdown文件 
+auto rename tag         修改HTML标签时，自动修改匹配的标签
+Markdown Paste          从剪切板粘贴图片到markdown文件
                             keymap:command+shift+v
                             config:"pasteImage.path": "./images/" 设置粘贴图片的存储路径
 GitLens                 查看谁提交了git代码
@@ -81,7 +56,7 @@ npm  intellisense
 path intellisense       文件路径自动补全
 Path Autocomplete       引入文件时路径提示
 Typescript Hero         比如自动import
-Add jsdoc comments          
+Add jsdoc comments
 view in browser         command+f1在浏览器中打开（view in browser插件）
 typings auto installer  变量自动补全提醒功能
 code snippets           es6代码提示
@@ -89,31 +64,34 @@ Bracket Pair Colorizer  不同层级的括号显示不同的颜色，方便查�
 chinese simpilfied      中文语言包
 ```
 
-### config配置
+### config 配置
+
 ```json
+{
+  "editor.mouseWheelZoom": true,
+  "eslint.autoFixOnSave": true, // 保存应用easlint格式
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
     {
-        "editor.mouseWheelZoom": true,
-        "eslint.autoFixOnSave": true, // 保存应用easlint格式
-        "eslint.validate": [
-            "javascript",
-            "javascriptreact",
-            {
-              "language": "html",
-              "autoFix": true
-            },
-            {
-              "language": "vue",
-              "autoFix": true
-            }
-        ],
-        "terminal.external.osxExec":"iTerm.app",
-        "terminal.integrated.fontFamily":"Source Code Pro for PowerLine",
-        "terminal.integrated.cursorStyle":"line"
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "vue",
+      "autoFix": true
     }
+  ],
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.fontFamily": "Source Code Pro for PowerLine",
+  "terminal.integrated.cursorStyle": "line"
+}
 ```
 
 ### 好用设置
-1. log() 默认第一个，设置=》snippetSuggestions=》value=》设置成top
+
+1. log() 默认第一个，设置=》snippetSuggestions=》value=》设置成 top
+
 ```
      "Print to console": {
             "prefix": "log",
@@ -124,36 +102,38 @@ chinese simpilfied      中文语言包
             "description": "Log output to console"
         }
     }
-    prefix      :这个参数是使用代码段的快捷入口,比如这里的log在使用时输入log会有智能感知. 
-    body        :这个是代码段的主体.需要设置的代码放在这里,字符串间换行的话使用          \r\n换行符隔开.注意如果值里包含特殊字符需要进行转义. 
-    $1          :这个为光标的所在位置. 
-    $2          :使用这个参数后会光标的下一位置将会另起一行,按tab键可进行快速切换 
+    prefix      :这个参数是使用代码段的快捷入口,比如这里的log在使用时输入log会有智能感知.
+    body        :这个是代码段的主体.需要设置的代码放在这里,字符串间换行的话使用          \r\n换行符隔开.注意如果值里包含特殊字符需要进行转义.
+    $1          :这个为光标的所在位置.
+    $2          :使用这个参数后会光标的下一位置将会另起一行,按tab键可进行快速切换
     description :代码段描述,在使用智能感知时的描述
-    
+
     直接输入log可以立马选择console.log
 ```
 
+#### vscode 工作去和终端切换设置
 
-#### vscode工作去和终端切换设置
 1.https://blog.csdn.net/chenh297/article/details/80076437;
+
 ```
     1.open keyborad shortcuts
     2.输入focus terminal 蓝色字体
-    
+
     快捷键：ctrl+j 终端 ctrl+1工作区
 ```
 
 # 常用快捷键
-``` 
+
+```
     Alt + F12               	显示代码片段定义
     shift + F12                 显示所有引用
     f2                          重命名
     command+z                   后退
     command+y                   前进
-    
+
     command+\                   切分窗口
     command + 1/2/3	            切分焦点在不同的切割窗口
-    
+
     f8                          跳转到下一个错误或者警告
     shift+f8                    跳转到上一个警告或者警告
     control+r                   最近打开的项目
@@ -161,11 +141,11 @@ chinese simpilfied      中文语言包
     command+shift+o             跳转到符号
     ctrl+shift+c                电脑打开终端
     command+`                   编辑器打开终端
-    
+
     command+h                   替换
-    
+
     command+shift+v             预览markdown文件
-    
+
     command + Shift + F	        打开全局搜索
     command + shift + h         打开全局替换
     command+f                   查询
@@ -174,22 +154,24 @@ chinese simpilfied      中文语言包
     alt+enter                   选中所有查询到的内容
     command+f2                  选中所有查询到的内容
     Alt + C / R / W		        不分大小写/使用正则/全字匹配
-    
+
     command+i                   选中当前行
-    
+
     command+d                   选中一个词汇
     command+k+d                 移动当前选中的词汇到下个匹配选择的位置,统一替换
-    
+
     alt+click                   多点编辑
     command+alt+up/down         上下插入光标,多点编辑
     command+u                   撤销最后一个光标
-    
+
     command+i                   选中当前行
-    
+
     Shift + Alt + (drag mouse)	鼠标拖动区域，同时在多个行结束符插入光标,统一替换，删除，添加
-    
+
 ```
-##  快捷键
+
+## 快捷键
+
 ```
 command+o               打开项目文件夹
 command+shift+n         快速打开一个编辑器
@@ -257,38 +239,34 @@ command+k+s             快捷键设置
 
 ### 插件集合
 
-##### `Local History`        查看本地文件的修改记录
+##### `Local History` 查看本地文件的修改记录
 
 > [链接地址](https://github.com/zabel-xyz/local-history)
 
 ```javascript
-    // 使用一
-        // command+shift+p
-        // view:local history  
-    // 使用二
-        // command+shift+p
-        // local history : show all
-        // 在本地的 .history目录里面会有记录
+// 使用一
+// command+shift+p
+// view:local history
+// 使用二
+// command+shift+p
+// local history : show all
+// 在本地的 .history目录里面会有记录
 ```
 
-##### `search node_modules`   搜索node_module插件
+##### `search node_modules` 搜索 node_module 插件
 
 > [链接地址](https://marketplace.visualstudio.com/items?itemName=jasonnutter.search-node-modules)
 
 ```javascript
-  // command+k+n 开始查找目录
+// command+k+n 开始查找目录
 ```
-
-
-
-
 
 ```
 4. css peek                             追踪至样式表中 CSS 类和 ids 定义的地方
 5. Color Info                           颜色的详细信息
 6. atom one dark syntax theme           主题
 7. VSCode Great Icons                   给不同类型的文件配置不同的图标
-8. eslint 
+8. eslint
 9. vetur                                vue代码支持插件
 Auto Close Tag  :                       匹配标签，关闭对应的标签。很实用【HTML/XML】
 Auto Rename Tag :                       sublime和webstorm也有这个内置功能，改变标签的时候同时改动开闭合标签；【HTML/XML】
@@ -436,6 +414,7 @@ Projects+: 项目管理必备插件,可以快速录入本地项目的地址,打�
 ```
 
 ### Angular 2+ && Typescript 2+必备插件推荐
+
 ```
 Auto Import : 对于一堆组件的我们来说，这货简直贴心，支持JSX和typescript，还有一些细致化的配置参数
 exports autocomplete : 和上个功能类似但是不等同，相当实用
@@ -447,4 +426,61 @@ Angular 2, 4 and upcoming latest TypeScript HTML Snippets : 在用这个插件�
 语法
 Latest TypeScript and Javascript Grammar :完美的支持beta及稳定版本的TS语法
 
+```
+
+### snippets 用户代码片段
+
+> `文件=》首选项=》用户代码片段=》新建全局代码片段`
+
+```json
+{
+  "h5 sample": {
+    "prefix": "h",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"zh-CN\">\n",
+      "<head>",
+      "\t<meta charset=\"UTF-8\">",
+      "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios\">",
+      "\t<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">",
+      "\t<title>Document</title>",
+      "\t<link rel=\"stylesheet\" href=\"$1\">",
+      "\t<script src=\"$2\"></script>",
+      "</head>\n",
+      "<body>\n$3",
+      "</body>\n",
+      "</html>"
+    ],
+    "description": "html5 template"
+  }
+}
+```
+
+### 我的配置
+
+```javascript
+    {
+        "workbench.colorTheme": "Visual Studio Dark",
+        "eslint.autoFixOnSave": true,
+        "emmet.triggerExpansionOnTab": true,
+        "window.zoomLevel": -1,
+        "editor.fontSize": 18,
+        "files.autoSave": "afterDelay",
+        "eslint.autoFixOnSave": true,
+        "eslint.validate": [
+            "javascript",
+            "javascriptreact",
+            {
+            "language": "html",
+            "autoFix": true
+            },
+            {
+            "language": "vue",
+            "autoFix": true
+            }
+        ],
+        "workbench.sideBar.location": "left",
+        "explorer.confirmDelete": false,
+        "editor.mouseWheelZoom": true
+    }
 ```
