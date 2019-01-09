@@ -33,6 +33,7 @@
     ctrl+r              最近打开的项目
     ctrl+g              跳转到行号
     ctrl+`              打开编辑器终端
+    command+delete      删除一行
 ```
 
 ### 必装插件
