@@ -23,7 +23,7 @@
     alt+shift+f         格式化代码（format docuemnt）
     command+alt+i       添加文件头注释
     shift+alt+a         添加多行注释
-    command+shfit+[     代码折叠显示
+    command+option+[    代码折叠显示
     command+e           ？gotofile搜索项目
     command+p           进入哪个文件,快捷查找文件
     command+shift+f     文件夹中查找
