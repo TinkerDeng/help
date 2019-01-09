@@ -24,6 +24,8 @@
     command+alt+i       添加文件头注释
     shift+alt+a         添加多行注释
     command+option+[    代码折叠显示
+    command+k+0         折叠所有代码
+    command+k+j         展开所有代码
     command+e           ？gotofile搜索项目
     command+p           进入哪个文件,快捷查找文件
     command+shift+f     文件夹中查找
