@@ -39,6 +39,7 @@
     yarn config delete key              删除
     yarn config list                    显示当前配置
     yarn config set registry https://registry.npm.taobao.org # 设置淘宝镜像
+    npm install -g cnpm --registry=https://registry.npm.taobao.org # 安装cnpm
     
     
     sudo yarn cache list            # 列出已缓存的每个包
