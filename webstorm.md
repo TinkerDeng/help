@@ -1,10 +1,19 @@
 # webstorm
 
+
 ## 目录
 
+* [快捷键](#快捷键)
 * [pycharm下载网址](#pycharm下载网址)
 * [永久破解](#永久破解)
 * [pycharm的python解释器的搭建](#pycharm的python解释器的搭建)
+
+### 快捷键
+
+```javascript
+  alt+enter 引入提醒
+  ctlr+shift+enter tslint语法修复
+```
 
 ### pycharm下载网址
 
