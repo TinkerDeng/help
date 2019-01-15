@@ -7,6 +7,7 @@
 * [文档地址](#文档地址)
 * [注意事项](#注意事项)
 * [api](#api)
+* [手机安装](#手机安装)
 
 ### 文档地址
 
@@ -45,3 +46,12 @@
 ### 图片资源
 ![](/assets/charles.png)
 ![](/assets/charles_tool.jpg)
+
+### 手机安装
+
+```
+按照Charles的提示，PC打开 chls.pro/ssl
+下载得到一个 charles-proxy-ssl-proxying-certificate.pem 证书
+传送到手机（姿势自选）
+设置 > 更多设置(系统和设备) > 系统安全 > 从存储设备安装
+```
