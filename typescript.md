@@ -5,13 +5,39 @@
 ## 目录
 
 * [安装环境](#安装环境)
+* [tsconfig.json](#tsconfig.json)
 * [语法](#语法)
+
 
 ### 安装环境
 
 ```
     npm install -g typescript
+    tsc --init #初始化一个.tsconfig.json的文件
 ```
+
+### tsconfig.json
+ 
+ ```javascript
+    {
+        "compilerOptions": {
+            "module": "commonjs",   //指定生成哪个模块系统代码
+            "target": "es6",        //目标代码类型
+            "noImplicitAny": false, //在表达式和声明上有隐含的'any'类型时报错。
+            "sourceMap": false,     //用于debug   
+            "rootDir":"./src",      //仅用来控制输出的目录结构--outDir。
+            "outDir":"./build",     //重定向输出目录。   
+            "watch":true            //在监视模式下运行编译器。会监视输出文件，在它们改变时重新编译。
+        },
+        "include":[
+            "./src/**/*"
+        ],
+        "exclude":[
+            "views",
+            "static"
+        ]
+    }
+ ```
 
 ### 语法
 
