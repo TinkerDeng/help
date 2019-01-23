@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .skeleton {
+            color: #fff;
+            width: 200px;
+            height: 200px;
+            background-color: #ff0000;
+        }
+    </style>
+    <!--通过改变rel让浏览器重写界定link标签加载的是个样式-->
+    <!--media方法也可以时下你类似的功能-->
+    <!--因为demo.css是preload，也就是说指定它后续才使用，并不妨碍当前页面,会先渲染骨架屏。而当css加载完成并修改了自己的rel之后，浏览器重新应用样式，目的达成-->
+    <!--  <link rel="preload" href="demo.css" as="style" onload="this.rel='stylesheet'">-->
+
+
+    <!--如果js先于css执行,就会出现内容出来了，而样式还没应用上闪动的问题-->
+    <!--loadCSS的开发者题出，如果某些浏览器在rel改变时重新触发onload，会导致后面的逻辑走了两次,需要设置this.onload=null;-->
+
+
+    <link rel="preload" href="demo.css" as="style"
+          onload="this.onload=null;this.rel='stylesheet';window.STYLE_READY=true;window.mountApp && window.mountApp()">
+    <script>
+        function mountApp() {
+            // 方法内部就是把实际内容添加到 <body> 上面
+        }
+
+        // 改成挂到 window 由 CSS 来调用
+        window.mountApp = mountApp()
+        if (window.STYLE_READY) {
+            console.log("样式加载完我才执行")
+            mountApp()
+        }
+        //  如果js更快，则先不执行自己，而是把机会留给css的onload
+        // 如果css更快加载完成，通过设置STYLE_READY允许js加载完成后直接执行渲染
+    </script>
+
+
+    <!--如果用户没有开启js脚本功能，我们需要添加一个 fallback-->
+    <noscript>
+        <link rel="stylesheet" href="demo.css">
+    </noscript>
+
+
+    <!--preload有兼容性问题，需要添加polyfill来解决-->
+    <script>
+        /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+        /* This file is meant as a standalone workflow for
+        - testing support for link[rel=preload]
+        - enabling async CSS loading in browsers that do not support rel=preload
+        - applying rel preload css once loaded, whether supported or not.
+        */
+        (function (w) {
+            "use strict";
+            // rel=preload support test
+            if (!w.loadCSS) {
+                w.loadCSS = function () {
+                };
+            }
+            // define on the loadCSS obj
+            var rp = loadCSS.relpreload = {};
+            // rel=preload feature support test
+            // runs once and returns a function for compat purposes
+            rp.support = (function () {
+                var ret;
+                try {
+                    ret = w.document.createElement("link").relList.supports("preload");
+                } catch (e) {
+                    ret = false;
+                }
+                return function () {
+                    return ret;
+                };
+            })();
+
+            // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+            // then change that media back to its intended value on load
+            rp.bindMediaToggle = function (link) {
+                // remember existing media attr for ultimate state, or default to 'all'
+                var finalMedia = link.media || "all";
+
+                function enableStylesheet() {
+                    // unbind listeners
+                    if (link.addEventListener) {
+                        link.removeEventListener("load", enableStylesheet);
+                    } else if (link.attachEvent) {
+                        link.detachEvent("onload", enableStylesheet);
+                    }
+                    link.setAttribute("onload", null);
+                    link.media = finalMedia;
+                }
+
+                // bind load handlers to enable media
+                if (link.addEventListener) {
+                    link.addEventListener("load", enableStylesheet);
+                } else if (link.attachEvent) {
+                    link.attachEvent("onload", enableStylesheet);
+                }
+
+                // Set rel and non-applicable media type to start an async request
+                // note: timeout allows this to happen async to let rendering continue in IE
+                setTimeout(function () {
+                    link.rel = "stylesheet";
+                    link.media = "only x";
+                });
+                // also enable media after 3 seconds,
+                // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+                setTimeout(enableStylesheet, 3000);
+            };
+
+            // loop through link elements in DOM
+            rp.poly = function () {
+                // double check this to prevent external calls from running
+                if (rp.support()) {
+                    return;
+                }
+                var links = w.document.getElementsByTagName("link");
+                for (var i = 0; i < links.length; i++) {
+                    var link = links[i];
+                    // qualify links to those with rel=preload and as=style attrs
+                    if (link.rel === "preload" && link.getAttribute("as") === "style" && !link.getAttribute("data-loadcss")) {
+                        // prevent rerunning on link
+                        link.setAttribute("data-loadcss", true);
+                        // bind listeners to toggle media back
+                        rp.bindMediaToggle(link);
+                    }
+                }
+            };
+
+            // if unsupported, run the polyfill
+            if (!rp.support()) {
+                // run once at least
+                rp.poly();
+
+                // rerun poly on an interval until onload
+                var run = w.setInterval(rp.poly, 500);
+                if (w.addEventListener) {
+                    w.addEventListener("load", function () {
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
+                } else if (w.attachEvent) {
+                    w.attachEvent("onload", function () {
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
+                }
+            }
+
+
+            // commonjs
+            if (typeof exports !== "undefined") {
+                exports.loadCSS = loadCSS;
+            }
+            else {
+                w.loadCSS = loadCSS;
+            }
+        }(typeof global !== "undefined" ? global : this));
+
+    </script>
+
+</head>
+<body>
+<div class="app" id="app">
+    <div class="skeleton">
+        <h3>多骨架屏的支持</h3>
+        <div>1. 把所有种类的骨架屏的 HTML 和样式全部写入 index.html</div>
+        <div>2. 在index.html底部新增内联的script,根据当前路由判断应该展示哪一个骨架屏</div>
+    </div>
+    <img src="https://images.unsplash.com/photo-1548049717-249a5f7e9189?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+         alt="">
+</div>
+<script src="demo.js"></script>
+</body>
+</html>
