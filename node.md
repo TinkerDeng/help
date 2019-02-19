@@ -119,16 +119,16 @@
         步骤二：构建一个json文件,data.json 
         步骤三：json-server data.json
     */
-    {
-        "user:[
-            {
-                id:1,
-            }
-        ],
-        "list":[{
-            id:1
-        }]
-    }
+    const json={
+            "user:[
+                {
+                    "id":1
+                }
+            ],
+            "list":[{
+                "id":1
+            }]
+        }
 ```
 
 ### body-parser
