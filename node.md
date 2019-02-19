@@ -112,7 +112,7 @@
 
 ### json-server
 
-```javascript
+```json
     /*
         (mock rest api)
         步骤一：cnpm i -g json-
