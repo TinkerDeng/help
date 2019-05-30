@@ -50,4 +50,10 @@ rm -rf xxxx                               删除文件
 	添加一行   127.0.0.0 www.kaishustory.com 
 	浏览器访问  http://www.kaishustory.com
 ```
-
+## 光标
+1、光标移动至行首：ctrl + a
+2、光标移动至行尾：ctrl + e
+3、粘贴最后一次删除的内容：ctrl + y
+4、删除前一个单词：ctrl + w
+5、删除光标前面的所有内容：ctrl + u
+6、删除光标后面的所有内容：ctrl + k
